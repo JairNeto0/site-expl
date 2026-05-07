@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Relatórios</title>
+
+    <!-- Biblioteca jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #111;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background-color: #000;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        section {
+            padding: 30px;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #fff;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #333;
+        }
+
+        td {
+            background-color: #1b1b1b;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 16px;
+            background-color: orange;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .ativo {
+            color: lime;
+            font-weight: bold;
+        }
+
+        .processando {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .erro {
+            color: red;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #000;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sistema de Relatórios</h1>
+    </header>
+
+    <section>
+        <h2>Relatórios Gerados</h2>
+
+        <p>
+            Lista de relatórios disponíveis no sistema.
+        </p>
+
+        <table id="tabela-relatorios">
+            <tr>
+                <th>ID</th>
+                <th>Relatório</th>
+                <th>Responsável</th>
+                <th>Status</th>
+                <th>Data</th>
+            </tr>
+
+            <tr>
+                <td>001</td>
+                <td>Relatório de Vendas</td>
+                <td>Thiago</td>
+                <td>Concluído</td>
+                <td>05/05/2026</td>
+            </tr>
+
+            <tr>
+                <td>002</td>
+                <td>Relatório Financeiro</td>
+                <td>Maria</td>
+                <td>Processando</td>
+                <td>06/05/2026</td>
+            </tr>
+
+            <tr>
+                <td>003</td>
+                <td>Relatório de Usuários</td>
+                <td>Carlos</td>
+                <td>Concluído</td>
+                <td>06/05/2026</td>
+            </tr>
+
+            <tr>
+                <td>004</td>
+                <td>Relatório de Estoque</td>
+                <td>Ana</td>
+                <td>Erro</td>
+                <td>07/05/2026</td>
+            </tr>
+
+            <tr>
+                <td>005</td>
+                <td>Relatório de Produtos</td>
+                <td>Fernanda</td>
+                <td>Concluído</td>
+                <td>07/05/2026</td>
+            </tr>
+        </table>
+
+        <button onclick="gerarPDF()">
+            Gerar Novo Relatório
+        </button>
+    </section>
+
+    <footer>
+        Sistema de Relatórios © 2026
+    </footer>
+
+    <script>
+        async function gerarPDF() {
+
+            const { jsPDF } = window.jspdf;
+
+            const doc = new jsPDF();
+
+            doc.setFontSize(18);
+            doc.text("Sistema de Relatórios", 20, 20);
+
+            doc.setFontSize(12);
+
+            let y = 40;
+
+            const tabela = document.getElementById("tabela-relatorios");
+
+            for (let i = 0; i < tabela.rows.length; i++) {
+
+                let linha = tabela.rows[i];
+                let textoLinha = "";
+
+                for (let j = 0; j < linha.cells.length; j++) {
+                    textoLinha += linha.cells[j].innerText + " | ";
+                }
+
+                doc.text(textoLinha, 20, y);
+
+                y += 10;
+            }
+
+            doc.save("relatorios.pdf");
+        }
+    </script>
+
+</body>
+</html>
