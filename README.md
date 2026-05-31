@@ -503,6 +503,22 @@ Branch de desenvolvimento:
 ```text
 front_gerencial_a
 ```
+### Continuidade do Desenvolvimento
+
+Para continuar o desenvolvimento do Frontend Gerencial:
+
+```bash
+git checkout front_gerencial_a
+```
+
+ou criar uma nova branch a partir dela:
+
+```bash
+git checkout front_gerencial_a
+git checkout -b front_gerencial_b
+```
+
+Essa branch contém a estrutura inicial utilizada como base para os próximos incrementos do Frontend Gerencial.
 ---
 
 ## 📚 Glossário (Termos Técnicos Explicados)
