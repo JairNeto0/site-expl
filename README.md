@@ -259,107 +259,188 @@ npm start
 ✅ **Pronto! O backend está rodando!**
 
 ---
+# Frontend Gerencial
 
-### Atualização do Projeto - Sprint Frontend Gerencial
+## Visão Geral
 
-## Status Atual
+O Frontend Gerencial é o módulo administrativo do sistema E-commerce, responsável pelo gerenciamento de produtos, pedidos, clientes, funcionários, relatórios e configurações da plataforma.
 
-### Backend E-commerce
-
-* Estrutura inicial em Node.js + Express criada.
-* Arquitetura modular definida.
-* Organização inicial das pastas do projeto.
-* Arquivo `.env.example` adicionado.
-* Estrutura preparada para evolução dos módulos.
-
-### Banco de Dados
-
-* Equipe responsável definida.
-* Estruturação e modelagem em andamento.
-
-### Frontend E-commerce
-
-* Equipe responsável definida.
-* Desenvolvimento ainda não iniciado nesta sprint.
-
-### Frontend Gerencial
-
-Implementação inicial realizada.
-
-#### Tecnologias Utilizadas
-
-* React
-* Vite
-* React Router DOM
-* Axios
-* Material UI (MUI)
-
-#### Estrutura Inicial Criada
-
-```text
-frontend/admin
-├── src
-│   ├── components
-│   ├── layouts
-│   ├── pages
-│   │   ├── Dashboard
-│   │   ├── Products
-│   │   ├── Orders
-│   │   ├── Customers
-│   │   ├── Employees
-│   │   ├── Reports
-│   │   └── Settings
-│   ├── routes
-│   ├── services
-│   └── theme
-├── package.json
-└── vite.config.js
-```
-
-#### Funcionalidades Implementadas
-
-* Configuração inicial do React com Vite.
-* Instalação das dependências principais.
-* Configuração do React Router.
-* Criação do Layout Administrativo.
-* Criação da Sidebar de navegação.
-* Configuração das rotas principais.
-* Criação da página Dashboard.
-* Criação das páginas temporárias:
-
-  * Produtos
-  * Pedidos
-  * Clientes
-  * Funcionários
-  * Relatórios
-  * Configurações
-* Navegação funcional entre páginas.
-
-#### Estrutura de Navegação
-
-* Dashboard
-* Produtos
-* Pedidos
-* Clientes
-* Funcionários
-* Relatórios
-* Configurações
-
-#### Próximas Etapas
-
-* Implementação de Sidebar profissional utilizando Material UI.
-* Implementação de Navbar superior.
-* Criação de Dashboard com indicadores e métricas.
-* Criação de componentes reutilizáveis.
-* Integração com APIs do backend.
-* Implementação de autenticação e autorização.
-* Desenvolvimento dos módulos CRUD.
+A implementação inicial foi desenvolvida utilizando **React + Vite**, com foco em organização, escalabilidade e preparação para futuras integrações com Backend e Banco de Dados.
 
 ---
 
-## Branch de Desenvolvimento
+## Tecnologias Utilizadas
 
-Frontend Gerencial:
+- React
+- Vite
+- React Router DOM
+- Axios
+- Material UI
+- Git / GitHub
+
+---
+
+## Estrutura Atual do Frontend Gerencial
+
+Localização do projeto:
+
+```text
+frontend/admin
+```
+
+Estrutura de diretórios:
+
+```text
+frontend/admin/src
+├── components
+│   └── Sidebar.jsx
+│
+├── layouts
+│   └── AdminLayout.jsx
+│
+├── pages
+│   ├── Customers
+│   │   └── Customers.jsx
+│   │
+│   ├── Dashboard
+│   │   └── Dashboard.jsx
+│   │
+│   ├── Employees
+│   │   └── Employees.jsx
+│   │
+│   ├── Orders
+│   │   └── Orders.jsx
+│   │
+│   ├── Products
+│   │   └── Products.jsx
+│   │
+│   ├── Reports
+│   │   └── Reports.jsx
+│   │
+│   └── Settings
+│       └── Settings.jsx
+│
+├── routes
+│   └── AppRoutes.jsx
+│
+├── services
+│
+├── theme
+│   └── theme.js
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+## Funcionalidades Implementadas
+
+### Estrutura Inicial
+
+- Configuração do ambiente React + Vite;
+- Organização modular do projeto;
+- Configuração das dependências principais;
+- Estrutura preparada para crescimento do sistema.
+
+### Navegação
+
+- Configuração do React Router;
+- Estrutura de rotas administrativas;
+- Navegação entre módulos.
+
+### Layout Administrativo
+
+- Layout base do painel administrativo;
+- Sidebar de navegação;
+- Estrutura preparada para Navbar e componentes avançados.
+
+### Módulos Disponíveis
+
+Foram criadas as páginas iniciais para:
+
+- Dashboard
+- Produtos
+- Pedidos
+- Clientes
+- Funcionários
+- Relatórios
+- Configurações
+
+---
+
+## Como Executar
+
+### Pré-requisitos
+
+- Node.js 20+
+- npm 10+
+- Git
+
+### Instalação
+
+Acesse o diretório do Frontend Gerencial:
+
+```bash
+cd frontend/admin
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o projeto:
+
+```bash
+npm run dev
+```
+
+O Vite exibirá um endereço semelhante a:
+
+```text
+http://localhost:5173
+```
+
+Abra o endereço informado no navegador.
+
+---
+
+## Como Testar
+
+Após iniciar a aplicação:
+
+### Dashboard
+
+Verifique se a página inicial é carregada corretamente.
+
+### Navegação
+
+Utilize a Sidebar para navegar entre:
+
+- Dashboard
+- Produtos
+- Pedidos
+- Clientes
+- Funcionários
+- Relatórios
+- Configurações
+
+### Validação
+
+Confirmar que:
+
+- Todas as páginas carregam sem erros;
+- A navegação ocorre corretamente;
+- Não existem erros no console do navegador.
+
+---
+
+## Branch de Referência
+
+A implementação inicial do Frontend Gerencial encontra-se na branch:
 
 ```text
 front_gerencial_a
@@ -367,11 +448,61 @@ front_gerencial_a
 
 ---
 
-## Objetivo da Sprint Atual
+## Continuidade do Desenvolvimento
 
-Disponibilizar a fundação do sistema administrativo, permitindo a navegação entre módulos e preparando a estrutura para futuras integrações com o backend e banco de dados.
+Para continuar o desenvolvimento do Frontend Gerencial:
 
+```bash
+git checkout front_gerencial_a
+```
 
+Criar uma nova branch a partir dela:
+
+```bash
+git checkout -b front_gerencial_b
+```
+
+ou
+
+```bash
+git checkout -b nome-da-sua-branch
+```
+
+---
+
+## Status Atual
+
+### Concluído
+
+- Estrutura do projeto criada;
+- React + Vite configurados;
+- Sistema de rotas implementado;
+- Layout administrativo inicial;
+- Sidebar funcional;
+- Dashboard inicial;
+- Páginas base dos módulos administrativos;
+- Documentação atualizada.
+
+### Em Desenvolvimento
+
+- Componentes avançados com Material UI;
+- Dashboard com métricas e indicadores;
+- Integração com Backend;
+- Integração com Banco de Dados;
+- Implementação dos CRUDs administrativos;
+- Controle de autenticação e permissões.
+
+---
+
+## Responsável pela Implementação Inicial
+
+**Eduardo do Prado**
+
+Branch de desenvolvimento:
+
+```text
+front_gerencial_a
+```
 ---
 
 ## 📚 Glossário (Termos Técnicos Explicados)
