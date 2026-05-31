@@ -260,15 +260,117 @@ npm start
 
 ---
 
-## 🎨 Configuração do Frontend (Aguardando)
+### Atualização do Projeto - Sprint Frontend Gerencial
 
-O frontend ainda está em desenvolvimento. Esta seção será atualizada quando estiver pronto.
+## Status Atual
 
-**Passos planejados:**
-1. Instalar dependências do React
-2. Configurar variáveis de ambiente (URL da API)
-3. Executar servidor de desenvolvimento
-4. Acessar no navegador
+### Backend E-commerce
+
+* Estrutura inicial em Node.js + Express criada.
+* Arquitetura modular definida.
+* Organização inicial das pastas do projeto.
+* Arquivo `.env.example` adicionado.
+* Estrutura preparada para evolução dos módulos.
+
+### Banco de Dados
+
+* Equipe responsável definida.
+* Estruturação e modelagem em andamento.
+
+### Frontend E-commerce
+
+* Equipe responsável definida.
+* Desenvolvimento ainda não iniciado nesta sprint.
+
+### Frontend Gerencial
+
+Implementação inicial realizada.
+
+#### Tecnologias Utilizadas
+
+* React
+* Vite
+* React Router DOM
+* Axios
+* Material UI (MUI)
+
+#### Estrutura Inicial Criada
+
+```text
+frontend/admin
+├── src
+│   ├── components
+│   ├── layouts
+│   ├── pages
+│   │   ├── Dashboard
+│   │   ├── Products
+│   │   ├── Orders
+│   │   ├── Customers
+│   │   ├── Employees
+│   │   ├── Reports
+│   │   └── Settings
+│   ├── routes
+│   ├── services
+│   └── theme
+├── package.json
+└── vite.config.js
+```
+
+#### Funcionalidades Implementadas
+
+* Configuração inicial do React com Vite.
+* Instalação das dependências principais.
+* Configuração do React Router.
+* Criação do Layout Administrativo.
+* Criação da Sidebar de navegação.
+* Configuração das rotas principais.
+* Criação da página Dashboard.
+* Criação das páginas temporárias:
+
+  * Produtos
+  * Pedidos
+  * Clientes
+  * Funcionários
+  * Relatórios
+  * Configurações
+* Navegação funcional entre páginas.
+
+#### Estrutura de Navegação
+
+* Dashboard
+* Produtos
+* Pedidos
+* Clientes
+* Funcionários
+* Relatórios
+* Configurações
+
+#### Próximas Etapas
+
+* Implementação de Sidebar profissional utilizando Material UI.
+* Implementação de Navbar superior.
+* Criação de Dashboard com indicadores e métricas.
+* Criação de componentes reutilizáveis.
+* Integração com APIs do backend.
+* Implementação de autenticação e autorização.
+* Desenvolvimento dos módulos CRUD.
+
+---
+
+## Branch de Desenvolvimento
+
+Frontend Gerencial:
+
+```text
+front_gerencial_a
+```
+
+---
+
+## Objetivo da Sprint Atual
+
+Disponibilizar a fundação do sistema administrativo, permitindo a navegação entre módulos e preparando a estrutura para futuras integrações com o backend e banco de dados.
+
 
 ---
 
