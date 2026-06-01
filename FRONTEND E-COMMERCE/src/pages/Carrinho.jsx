@@ -1,28 +1,20 @@
-import { useState } from 'react'
+// src/pages/Carrinho.jsx
+
 import { useNavigate } from 'react-router-dom'
+import { useCarrinho } from '../context/CarrinhoContext'
 
 function Carrinho() {
+  const navigate = useNavigate()
+  const { itens, removerItem, atualizarQuantidade, totalPreco } = useCarrinho()
 
-  var navigate = useNavigate()
-
-  var [itens, setItens] = useState([
-    { id: 1, nome: 'Expl💥 Morango', preco: 8.90, quantidade: 1 },
-    { id: 2, nome: 'Expl💥 Prime Uva', preco: 8.90, quantidade: 2 },
-  ])
-
-  function removerItem(id) {
-    var novaLista = []
-    for (var i = 0; i < itens.length; i++) {
-      if (itens[i].id != id) {
-        novaLista.push(itens[i])
-      }
-    }
-    setItens(novaLista)
-  }
-
-  var total = 0
-  for (var i = 0; i < itens.length; i++) {
-    total = total + (itens[i].preco * itens[i].quantidade)
+  if (itens.length === 0) {
+    return (
+      <div className="container">
+        <h2 style={{ marginBottom: '20px' }}>Meu Carrinho</h2>
+        <p style={{ marginBottom: '20px' }}>Seu carrinho está vazio.</p>
+        <button onClick={() => navigate('/produtos')}>Ver Produtos</button>
+      </div>
+    )
   }
 
   return (
@@ -39,23 +31,48 @@ function Carrinho() {
           </tr>
         </thead>
         <tbody>
-          {itens.map(function(item) {
+          {itens.map(item => {
+            const preco = Number(item.price ?? item.preco ?? 0)
+            const nome = item.name ?? item.nome
             return (
               <tr key={item.id}>
-                <td>{item.nome}</td>
-                <td>R$ {item.preco.toFixed(2)}</td>
-                <td>{item.quantidade}</td>
-                <td>R$ {(item.preco * item.quantidade).toFixed(2)}</td>
+                <td>{nome}</td>
+                <td>R$ {preco.toFixed(2)}</td>
                 <td>
-                  <button onClick={function() { removerItem(item.id) }}>Remover</button>
+                  <div style={{
+                    display: 'flex', alignItems: 'center',
+                    gap: '8px', justifyContent: 'center'
+                  }}>
+                    <button
+                      onClick={() => atualizarQuantidade(item.id, item.quantidade - 1)}
+                      style={{ padding: '4px 10px', fontSize: '14px' }}
+                    >−</button>
+                    <span>{item.quantidade}</span>
+                    <button
+                      onClick={() => atualizarQuantidade(item.id, item.quantidade + 1)}
+                      style={{ padding: '4px 10px', fontSize: '14px' }}
+                    >+</button>
+                  </div>
+                </td>
+                <td>R$ {(preco * item.quantidade).toFixed(2)}</td>
+                <td>
+                  <button
+                    onClick={() => removerItem(item.id)}
+                    style={{ background: '#c00', padding: '6px 12px', fontSize: '13px' }}
+                  >
+                    Remover
+                  </button>
                 </td>
               </tr>
             )
           })}
         </tbody>
       </table>
-      <h3 style={{ margin: '20px 0', color: 'orange' }}>Total: R$ {total.toFixed(2)}</h3>
-      <button onClick={function() { navigate('/checkout') }}>Finalizar Compra</button>
+
+      <h3 style={{ margin: '20px 0', color: 'orange' }}>
+        Total: R$ {totalPreco.toFixed(2)}
+      </h3>
+      <button onClick={() => navigate('/checkout')}>Finalizar Compra</button>
     </div>
   )
 }

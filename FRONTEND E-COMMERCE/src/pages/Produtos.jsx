@@ -1,23 +1,40 @@
+// src/pages/Produtos.jsx
+
+import { useState, useEffect } from 'react'
 import CardProduto from '../components/CardProduto'
 
+const produtosMock = [
+  { id: 1, name: 'Expl💥 Morango', price: 8.90, image: 'https://placehold.co/250x200' },
+  { id: 2, name: 'Expl💥 Prime Uva', price: 8.90, image: 'https://placehold.co/250x200' },
+  { id: 3, name: 'Expl💥 Açaí', price: 7.90, image: 'https://placehold.co/250x200' },
+  { id: 4, name: 'Expl💥 Citrus', price: 7.90, image: 'https://placehold.co/250x200' },
+  { id: 5, name: 'Expl💥 Prime Mango', price: 8.90, image: 'https://placehold.co/250x200' },
+  { id: 6, name: 'Expl💥 Prime Ice', price: 7.90, image: 'https://placehold.co/250x200' },
+]
+
 function Produtos() {
+  const [produtos, setProdutos] = useState([])
+  const [carregando, setCarregando] = useState(true)
 
-  var produto1 = { id: 1, nome: 'Expl💥 Morango', preco: '8.90', imagem: 'https://via.placeholder.com/250x200' }
-  var produto2 = { id: 2, nome: 'Expl💥 Prime Uva', preco: '8.90', imagem: 'https://via.placeholder.com/250x200' }
-  var produto3 = { id: 3, nome: 'Expl💥 Açaí', preco: '7.90', imagem: 'https://via.placeholder.com/250x200' }
-  var produto4 = { id: 4, nome: 'Expl💥 Citrus', preco: '7.90', imagem: 'https://via.placeholder.com/250x200' }
-  var produto5 = { id: 5, nome: 'Expl💥 Prime Mango', preco: '8.90', imagem: 'https://via.placeholder.com/250x200' }
-  var produto6 = { id: 6, nome: 'Expl💥 Prime Ice', preco: '7.90', imagem: 'https://via.placeholder.com/250x200' }
+  useEffect(() => {
+    // Simula uma busca na API com delay de 500ms
+    setTimeout(() => {
+      setProdutos(produtosMock)
+      setCarregando(false)
+    }, 500)
+  }, [])
 
-  var lista = [produto1, produto2, produto3, produto4, produto5, produto6]
+  if (carregando) {
+    return <div className="container"><p>Carregando produtos...</p></div>
+  }
 
   return (
     <div>
       <h2 style={{ padding: '30px' }}>Nossos Produtos</h2>
       <div className="grid-produtos">
-        {lista.map(function(p) {
-          return <CardProduto key={p.id} id={p.id} nome={p.nome} preco={p.preco} imagem={p.imagem} />
-        })}
+        {produtos.map(p => (
+          <CardProduto key={p.id} produto={p} />
+        ))}
       </div>
     </div>
   )
