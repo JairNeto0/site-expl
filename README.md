@@ -259,17 +259,266 @@ npm start
 ✅ **Pronto! O backend está rodando!**
 
 ---
+# Frontend Gerencial
 
-## 🎨 Configuração do Frontend (Aguardando)
+## Visão Geral
 
-O frontend ainda está em desenvolvimento. Esta seção será atualizada quando estiver pronto.
+O Frontend Gerencial é o módulo administrativo do sistema E-commerce, responsável pelo gerenciamento de produtos, pedidos, clientes, funcionários, relatórios e configurações da plataforma.
 
-**Passos planejados:**
-1. Instalar dependências do React
-2. Configurar variáveis de ambiente (URL da API)
-3. Executar servidor de desenvolvimento
-4. Acessar no navegador
+A implementação inicial foi desenvolvida utilizando **React + Vite**, com foco em organização, escalabilidade e preparação para futuras integrações com Backend e Banco de Dados.
 
+---
+
+## Tecnologias Utilizadas
+
+- React
+- Vite
+- React Router DOM
+- Axios
+- Material UI
+- Git / GitHub
+
+---
+
+## Estrutura Atual do Frontend Gerencial
+
+Localização do projeto:
+
+```text
+frontend/admin
+```
+
+Estrutura de diretórios:
+
+```text
+frontend/admin/src
+├── components
+│   └── Sidebar.jsx
+│
+├── layouts
+│   └── AdminLayout.jsx
+│
+├── pages
+│   ├── Customers
+│   │   └── Customers.jsx
+│   │
+│   ├── Dashboard
+│   │   └── Dashboard.jsx
+│   │
+│   ├── Employees
+│   │   └── Employees.jsx
+│   │
+│   ├── Orders
+│   │   └── Orders.jsx
+│   │
+│   ├── Products
+│   │   └── Products.jsx
+│   │
+│   ├── Reports
+│   │   └── Reports.jsx
+│   │
+│   └── Settings
+│       └── Settings.jsx
+│
+├── routes
+│   └── AppRoutes.jsx
+│
+├── services
+│
+├── theme
+│   └── theme.js
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+## Funcionalidades Implementadas
+
+### Estrutura Inicial
+
+- Configuração do ambiente React + Vite;
+- Organização modular do projeto;
+- Configuração das dependências principais;
+- Estrutura preparada para crescimento do sistema.
+
+### Navegação
+
+- Configuração do React Router;
+- Estrutura de rotas administrativas;
+- Navegação entre módulos.
+
+### Layout Administrativo
+
+- Layout base do painel administrativo;
+- Sidebar de navegação;
+- Estrutura preparada para Navbar e componentes avançados.
+
+### Módulos Disponíveis
+
+Foram criadas as páginas iniciais para:
+
+- Dashboard
+- Produtos
+- Pedidos
+- Clientes
+- Funcionários
+- Relatórios
+- Configurações
+
+---
+
+## Como Executar
+
+### Pré-requisitos
+
+- Node.js 20+
+- npm 10+
+- Git
+
+### Instalação
+
+Acesse o diretório do Frontend Gerencial:
+
+```bash
+cd frontend/admin
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o projeto:
+
+```bash
+npm run dev
+```
+
+O Vite exibirá um endereço semelhante a:
+
+```text
+http://localhost:5173
+```
+
+Abra o endereço informado no navegador.
+
+---
+
+## Como Testar
+
+Após iniciar a aplicação:
+
+### Dashboard
+
+Verifique se a página inicial é carregada corretamente.
+
+### Navegação
+
+Utilize a Sidebar para navegar entre:
+
+- Dashboard
+- Produtos
+- Pedidos
+- Clientes
+- Funcionários
+- Relatórios
+- Configurações
+
+### Validação
+
+Confirmar que:
+
+- Todas as páginas carregam sem erros;
+- A navegação ocorre corretamente;
+- Não existem erros no console do navegador.
+
+---
+
+## Branch de Referência
+
+A implementação inicial do Frontend Gerencial encontra-se na branch:
+
+```text
+front_gerencial_a
+```
+
+---
+
+## Continuidade do Desenvolvimento
+
+Para continuar o desenvolvimento do Frontend Gerencial:
+
+```bash
+git checkout front_gerencial_a
+```
+
+Criar uma nova branch a partir dela:
+
+```bash
+git checkout -b front_gerencial_b
+```
+
+ou
+
+```bash
+git checkout -b nome-da-sua-branch
+```
+
+---
+
+## Status Atual
+
+### Concluído
+
+- Estrutura do projeto criada;
+- React + Vite configurados;
+- Sistema de rotas implementado;
+- Layout administrativo inicial;
+- Sidebar funcional;
+- Dashboard inicial;
+- Páginas base dos módulos administrativos;
+- Documentação atualizada.
+
+### Em Desenvolvimento
+
+- Componentes avançados com Material UI;
+- Dashboard com métricas e indicadores;
+- Integração com Backend;
+- Integração com Banco de Dados;
+- Implementação dos CRUDs administrativos;
+- Controle de autenticação e permissões.
+
+---
+
+## Responsável pela Implementação Inicial
+
+**Eduardo do Prado**
+
+Branch de desenvolvimento:
+
+```text
+front_gerencial_a
+```
+### Continuidade do Desenvolvimento
+
+Para continuar o desenvolvimento do Frontend Gerencial:
+
+```bash
+git checkout front_gerencial_a
+```
+
+ou criar uma nova branch a partir dela:
+
+```bash
+git checkout front_gerencial_a
+git checkout -b front_gerencial_b
+```
+
+Essa branch contém a estrutura inicial utilizada como base para os próximos incrementos do Frontend Gerencial.
 ---
 
 ## 📚 Glossário (Termos Técnicos Explicados)
